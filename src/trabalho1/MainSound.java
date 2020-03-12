@@ -12,7 +12,7 @@ public class MainSound {
         FileInputStream fis = new FileInputStream(file);
         Scanner scanner = new Scanner(file);
         String str = "";
-        boolean vdd = true;
+        boolean vdd = true; 
 
         while (vdd == true) {
             int dado = fis.read();
