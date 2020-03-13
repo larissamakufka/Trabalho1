@@ -1,11 +1,15 @@
 package trabalho1.Form;
 
+import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Cadastro extends javax.swing.JFrame {
-    
+
     public Cadastro() {
         initComponents();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -32,6 +36,12 @@ public class Cadastro extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Título da música:");
+
+        jtfTitulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfTituloActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Artista:");
 
@@ -143,12 +153,185 @@ public class Cadastro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarActionPerformed
+        int i = 0;
+
+        String cabecalho = "TAG";
+
+        String titulo = jtfTitulo.getText();
+        String jtfTitulo = "";
+        i = titulo.length();
+        if (i > 30) {
+            jtfTitulo = titulo.substring(0, 29);
+        } else {
+            if (i != 30) {
+                i = 30 - i;
+                while (i != 30) {
+                    titulo = titulo + " ";
+                    i = i + 1;
+                }
+                jtfTitulo = titulo;
+            } else {
+                jtfTitulo = titulo;
+            }
+        }
+
+        String artista = jtfArtista.getText();
+        String jtfArtista = "";
+        i = artista.length();
+        if (i > 30) {
+            jtfArtista = artista.substring(0, 29);
+        } else {
+            if (i != 30) {
+                i = 30 - i;
+                while (i != 30) {
+                    artista = artista + " ";
+                    i = i + 1;
+                }
+                jtfArtista = artista;
+            } else {
+                jtfArtista = artista;
+            }
+        }
+
+        String album = jtfAlbum.getText();
+        String jtfAlbum = "";
+        i = album.length();
+        if (i > 30) {
+            jtfAlbum = album.substring(0, 29);
+        } else {
+            if (i != 30) {
+                i = 30 - i;
+                while (i != 30) {
+                    album = album + " ";
+                    i = i + 1;
+                }
+                jtfAlbum = album;
+            } else {
+                jtfAlbum = album;
+            }
+        }
+
+        String ano = jtfAno.getText();
+        String jtfAno = "";
+        i = ano.length();
+        if (i > 4) {
+            jtfAno = ano.substring(0, 3);
+        } else {
+            if (i != 4) {
+                i = 4 - i;
+                while (i != 4) {
+                    ano = ano + " ";
+                    i = i + 1;
+                }
+                jtfAno = ano;
+            } else {
+                jtfAno = ano;
+            }
+        }
+
+        String comentario = jtfComentario.getText();
+        String jtfComentario = "";
+        i = comentario.length();
+        if (i > 28) {
+            jtfComentario = comentario.substring(0, 27);
+        } else {
+            if (i != 28) {
+                i = 28 - i;
+                while (i != 28) {
+                    comentario = comentario + " ";
+                    i = i + 1;
+                }
+                jtfComentario = comentario;
+            } else {
+                jtfComentario = comentario;
+            }
+        }
+
+        String flag = jtfFlag.getText();
+        String jtfFlag = "";
+        i = flag.length();
+        if (i > 1) {
+            jtfFlag = flag.substring(0);
+        } else {
+            if (i != 1) {
+                jtfFlag = " ";
+            } else {
+                jtfFlag = flag;
+            }
+        }
+
+        String nrFaixa = jtfNrFaixa.getText();
+        String jtfNrFaixa = "";
+        i = nrFaixa.length();
+        if (i > 1) {
+            jtfNrFaixa = nrFaixa.substring(0);
+        } else {
+            if (i != 1) {
+                jtfNrFaixa = " ";
+            } else {
+                jtfNrFaixa = nrFaixa;
+            }
+        }
+
+        String genero = jtfGenero.getText();
+        String jtfGenero = "";
+        i = genero.length();
+        if (i > 1) {
+            jtfGenero = genero.substring(0);
+        } else {
+            if (i != 1) {
+                jtfGenero = " ";
+            } else {
+                jtfGenero = genero;
+            }
+        }
+        String arquivo = jtfTitulo + "-" + jtfArtista;
+        File fileOut = new File("..\\..\\..\\test" + arquivo + ".ID3v1.1");
+        try {
+            FileOutputStream fos = new FileOutputStream(fileOut);
+
+            fos.write(cabecalho.getBytes());
+            fos.close();
+            
+            fos.write(jtfTitulo.getBytes());
+            fos.close();
+            
+            fos.write(jtfArtista.getBytes());
+            fos.close();
+            
+            fos.write(jtfAlbum.getBytes());
+            fos.close();
+            
+            fos.write(jtfAno.getBytes());
+            fos.close();
+            
+            fos.write(jtfComentario.getBytes());
+            fos.close();
+            
+            fos.write(jtfFlag.getBytes());
+            fos.close();
+            
+            fos.write(jtfNrFaixa.getBytes());
+            fos.close();
+            
+            fos.write(jtfGenero.getBytes());
+            fos.close();
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_jbSalvarActionPerformed
 
     private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
         dispose();
     }//GEN-LAST:event_jbCancelarActionPerformed
+
+    private void jtfTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfTituloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfTituloActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
