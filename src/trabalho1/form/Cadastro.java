@@ -3,6 +3,8 @@ package trabalho1.Form;
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import trabalho1.Musica;
+import trabalho1.Musicas;
 
 public class Cadastro extends javax.swing.JFrame {
 
@@ -157,11 +159,12 @@ public class Cadastro extends javax.swing.JFrame {
 
         String cabecalho = "TAG";
 
+        Musica m = new Musica();
+
         String titulo = jtfTitulo.getText();
-        String jtfTitulo = "";
         i = titulo.length();
         if (i > 30) {
-            jtfTitulo = titulo.substring(0, 29);
+            m.setTitulo(titulo.substring(0, 29));
         } else {
             if (i != 30) {
                 i = 30 - i;
@@ -169,17 +172,16 @@ public class Cadastro extends javax.swing.JFrame {
                     titulo = titulo + " ";
                     i = i + 1;
                 }
-                jtfTitulo = titulo;
+                m.setTitulo(titulo.substring(0, 29));
             } else {
-                jtfTitulo = titulo;
+                m.setTitulo(titulo.substring(0, 29));
             }
         }
 
         String artista = jtfArtista.getText();
-        String jtfArtista = "";
         i = artista.length();
         if (i > 30) {
-            jtfArtista = artista.substring(0, 29);
+            m.setArtista(artista.substring(0, 29));
         } else {
             if (i != 30) {
                 i = 30 - i;
@@ -187,17 +189,16 @@ public class Cadastro extends javax.swing.JFrame {
                     artista = artista + " ";
                     i = i + 1;
                 }
-                jtfArtista = artista;
+                m.setArtista(artista.substring(0, 29));
             } else {
-                jtfArtista = artista;
+                m.setArtista(artista.substring(0, 29));
             }
         }
 
         String album = jtfAlbum.getText();
-        String jtfAlbum = "";
         i = album.length();
         if (i > 30) {
-            jtfAlbum = album.substring(0, 29);
+            m.setAlbum(album.substring(0, 29));
         } else {
             if (i != 30) {
                 i = 30 - i;
@@ -205,17 +206,16 @@ public class Cadastro extends javax.swing.JFrame {
                     album = album + " ";
                     i = i + 1;
                 }
-                jtfAlbum = album;
+                m.setAlbum(album.substring(0, 29));
             } else {
-                jtfAlbum = album;
+                m.setAlbum(album.substring(0, 29));
             }
         }
 
         String ano = jtfAno.getText();
-        String jtfAno = "";
         i = ano.length();
         if (i > 4) {
-            jtfAno = ano.substring(0, 3);
+            m.setAno(Integer.getInteger(ano.substring(0, 3)));
         } else {
             if (i != 4) {
                 i = 4 - i;
@@ -292,31 +292,31 @@ public class Cadastro extends javax.swing.JFrame {
 
             fos.write(cabecalho.getBytes());
             fos.close();
-            
+
             fos.write(jtfTitulo.getBytes());
             fos.close();
-            
+
             fos.write(jtfArtista.getBytes());
             fos.close();
-            
+
             fos.write(jtfAlbum.getBytes());
             fos.close();
-            
+
             fos.write(jtfAno.getBytes());
             fos.close();
-            
+
             fos.write(jtfComentario.getBytes());
             fos.close();
-            
+
             fos.write(jtfFlag.getBytes());
             fos.close();
-            
+
             fos.write(jtfNrFaixa.getBytes());
             fos.close();
-            
+
             fos.write(jtfGenero.getBytes());
             fos.close();
-            
+
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {

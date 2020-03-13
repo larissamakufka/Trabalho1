@@ -1,6 +1,8 @@
 package trabalho1.Form;
 
-public class Principal extends javax.swing.JFrame {
+import javax.swing.JFrame;
+
+public class Principal extends JFrame {
     
     public Principal() {
         initComponents();
