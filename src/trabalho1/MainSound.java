@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class MainSound {
 
-    public static void main(String[] args) throws IOException {
+    public static void mainll(String[] args) throws IOException {
         File file = new File("C:\\Users\\Bruna Schroeder\\Desktop\\FURB\\Prog II\\yeha-noha-vibes-blumenau-sc.mp3");
         FileInputStream fis = new FileInputStream(file);
         Scanner scanner = new Scanner(file);
