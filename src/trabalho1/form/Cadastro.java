@@ -1,4 +1,4 @@
-package trabalho1.form;
+package trabalho1.Form;
 
 public class Cadastro extends javax.swing.JFrame {
     
