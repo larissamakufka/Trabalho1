@@ -1,11 +1,16 @@
 package trabalho1.Form;
 
+import java.io.*;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Principal extends javax.swing.JFrame {
-    
+
     public Principal() {
         initComponents();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -79,6 +84,9 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jbAdicionarActionPerformed
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
+
+        File fileOut = new File(""); //pegar nome do diretorio do item selecionado, como fazer
+        fileOut.deleteOnExit();
 
     }//GEN-LAST:event_jbExcluirActionPerformed
 
