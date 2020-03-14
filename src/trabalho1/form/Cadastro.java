@@ -167,16 +167,12 @@ public class Cadastro extends javax.swing.JFrame {
         if (i > 30) {
             m.setTitulo(titulo.substring(0, 29));
         } else {
-            if (i != 30) {
-                i = 30 - i;
-                while (i != 30) {
-                    titulo = titulo + " ";
-                    i = i + 1;
-                }
-                m.setTitulo(titulo.substring(0, 29));
-            } else {
-                m.setTitulo(titulo.substring(0, 29));
+            i = 30 - i;
+            while (i != 30) {
+                titulo = titulo + " ";
+                i = i + 1;
             }
+            m.setTitulo(titulo);
         }
 
         String artista = jtfArtista.getText();
@@ -184,16 +180,12 @@ public class Cadastro extends javax.swing.JFrame {
         if (i > 30) {
             m.setArtista(artista.substring(0, 29));
         } else {
-            if (i != 30) {
-                i = 30 - i;
-                while (i != 30) {
-                    artista = artista + " ";
-                    i = i + 1;
-                }
-                m.setArtista(artista.substring(0, 29));
-            } else {
-                m.setArtista(artista.substring(0, 29));
+            i = 30 - i;
+            while (i != 30) {
+                artista = artista + " ";
+                i = i + 1;
             }
+            m.setArtista(artista);
         }
 
         String album = jtfAlbum.getText();
@@ -201,16 +193,12 @@ public class Cadastro extends javax.swing.JFrame {
         if (i > 30) {
             m.setAlbum(album.substring(0, 29));
         } else {
-            if (i != 30) {
-                i = 30 - i;
-                while (i != 30) {
-                    album = album + " ";
-                    i = i + 1;
-                }
-                m.setAlbum(album.substring(0, 29));
-            } else {
-                m.setAlbum(album.substring(0, 29));
+            i = 30 - i;
+            while (i != 30) {
+                album = album + " ";
+                i = i + 1;
             }
+            m.setAlbum(album);
         }
 
         String ano = jtfAno.getText();
@@ -218,16 +206,12 @@ public class Cadastro extends javax.swing.JFrame {
         if (i > 4) {
             m.setAno(Integer.getInteger(ano.substring(0, 3)));
         } else {
-            if (i != 4) {
-                i = 4 - i;
-                while (i != 4) {
-                    ano = ano + " ";
-                    i = i + 1;
-                }
-                m.setAno(Integer.getInteger(ano.substring(0, 3)));
-            } else {
-                m.setAno(Integer.getInteger(ano.substring(0, 3)));
+            i = 4 - i;
+            while (i != 4) {
+                ano = ano + " ";
+                i = i + 1;
             }
+            m.setAno(Integer.getInteger(ano));
         }
 
         String comentario = jtfComentario.getText();
@@ -236,16 +220,12 @@ public class Cadastro extends javax.swing.JFrame {
         if (i > 28) {
             jtfComentario = comentario.substring(0, 27);
         } else {
-            if (i != 28) {
-                i = 28 - i;
-                while (i != 28) {
-                    comentario = comentario + " ";
-                    i = i + 1;
-                }
-                jtfComentario = comentario;
-            } else {
-                jtfComentario = comentario;
+            i = 28 - i;
+            while (i != 28) {
+                comentario = comentario + " ";
+                i = i + 1;
             }
+            jtfComentario = comentario;
         }
 
         String flag = jtfFlag.getText();
@@ -286,6 +266,7 @@ public class Cadastro extends javax.swing.JFrame {
                 jtfGenero = genero;
             }
         }
+        
         String arquivo = jtfTitulo + "-" + jtfArtista;
         File fileOut = new File("..\\..\\..\\test" + arquivo + ".ID3v1.1");
         try {
