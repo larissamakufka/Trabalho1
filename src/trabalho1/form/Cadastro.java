@@ -2,10 +2,7 @@ package trabalho1.Form;
 
 import java.io.*;
 import java.util.logging.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import trabalho1.Musica;
-//import trabalho1.Musicas;
 
 public class Cadastro extends javax.swing.JFrame {
 
@@ -266,7 +263,7 @@ public class Cadastro extends javax.swing.JFrame {
         }
 
         String arquivo = jtfTitulo + "-" + jtfArtista;
-        File fileOut = new File(getClass().getResource("../Arquivos").getPath() + "/test" + arquivo + ".ID3v1.1");
+        File fileOut = new File("C:\\WINDOWS\\TEMP\\" + arquivo + ".ID3v1.1");
         try {
             FileOutputStream fos = new FileOutputStream(fileOut);
             fos.write(cabecalho.getBytes());
