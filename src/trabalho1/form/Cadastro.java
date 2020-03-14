@@ -157,10 +157,9 @@ public class Cadastro extends javax.swing.JFrame {
 
     private void jbSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarActionPerformed
         int i = 0;
+        Musica m = new Musica();
 
         String cabecalho = "TAG";
-
-        Musica m = new Musica();
 
         String titulo = jtfTitulo.getText();
         i = titulo.length();
@@ -266,12 +265,11 @@ public class Cadastro extends javax.swing.JFrame {
                 jtfGenero = genero;
             }
         }
-        
+
         String arquivo = jtfTitulo + "-" + jtfArtista;
         File fileOut = new File("..\\..\\..\\test" + arquivo + ".ID3v1.1");
         try {
             FileOutputStream fos = new FileOutputStream(fileOut);
-
             fos.write(cabecalho.getBytes());
             fos.close();
             fos.write(m.getTitulo().getBytes());
@@ -290,7 +288,6 @@ public class Cadastro extends javax.swing.JFrame {
             fos.close();
             fos.write(jtfGenero.getBytes());
             fos.close();
-
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
