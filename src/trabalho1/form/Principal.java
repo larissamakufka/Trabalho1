@@ -5,6 +5,13 @@ import trabalho1.model.TableModelMusica;
 
 public class Principal extends javax.swing.JFrame {
 
+<<<<<<< HEAD
+//    public class Principal extends JFrame {
+//        public Principal() {
+//            initComponents();
+//        }
+//        @SuppressWarnings("unchecked")
+=======
     public Principal() {
         initComponents();
         popularTabela();
@@ -25,6 +32,7 @@ public class Principal extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
+>>>>>>> afaa75f9e0e053415a9b0d85ae48dc7ce4c59065
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
