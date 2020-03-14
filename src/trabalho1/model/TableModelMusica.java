@@ -2,16 +2,13 @@ package trabalho1.model;
 
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
+import trabalho1.Musica;
 
-public class TableModel extends AbstractTableModel {
- //aqui transformei em coluna cada propriedade de Funcionario
-    //que eu quero que seja exibida na tabela  
-    private String colunas[] = {"nome", "idade", "matricula", "admitido"};
-    private ArrayList<Funcionario> funcionarios;
-    private final int COLUNA_NOME = 0;
-    private final int COLUNA_IDADE = 1;
-    private final int COLUNA_MATRICULA = 2;
-    private final int COLUNA_ADMITIDO = 3;
+public class TableModelMusica extends AbstractTableModel {
+    private String colunas[] = {"Título", "Artista"};
+    private ArrayList<Musica> musica;
+    private final int COLUNA_TITULO = 0;
+    private final int COLUNA_ARTISTA = 1;
 
 //    public FuncionarioTableModel(ArrayList<Funcionario> funcionarios) {
 //        this.funcionarios = funcionarios;
@@ -26,7 +23,7 @@ public class TableModel extends AbstractTableModel {
     //retorna o total de itens(que virarão linhas) da nossa lista
     @Override
     public int getRowCount() {
-        return funcionarios.size();
+        return musica.size();
     }
     //retorna o total de colunas da tabela
     @Override
@@ -43,14 +40,10 @@ public class TableModel extends AbstractTableModel {
     @Override
     public Class<?> getColumnClass(int columnIndex) {
         switch (columnIndex) {
-            case COLUNA_NOME:
+            case COLUNA_TITULO:
                 return String.class;
-            case COLUNA_IDADE:
-                return Integer.class;
-            case COLUNA_MATRICULA:
-                return Integer.class;
-            case COLUNA_ADMITIDO:
-                return Boolean.class;
+            case COLUNA_ARTISTA:
+                return String.class;
             default:
                 return String.class;
         }
@@ -59,17 +52,13 @@ public class TableModel extends AbstractTableModel {
     //preenche cada célula da tabela
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Funcionario funcionario = this.funcionarios.get(rowIndex);
+        Musica musica = this.musica.get(rowIndex);
 
         switch (columnIndex) {
-            case COLUNA_NOME:
-//                return funcionario.getNome();
-            case COLUNA_IDADE:
-//                return funcionario.getIdade();
-            case COLUNA_MATRICULA:
-//                return funcionario.getMatricula();
-            case COLUNA_ADMITIDO:
-//                return funcionario.isAdmitido();
+            case COLUNA_TITULO:
+                return musica.getTitulo();
+            case COLUNA_ARTISTA:
+                return musica.getArtista();
         }
         return null;
     }
@@ -79,21 +68,16 @@ public class TableModel extends AbstractTableModel {
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
         //o argumento recebido pelo método é do tipo Object
         //mas como nossa tabela é de funcionários, é seguro(e até recomendável) fazer o cast de suas propriedades
-        Funcionario funcionario = this.funcionarios.get(rowIndex);
+        Musica musica = this.musica.get(rowIndex);
         //de acordo com a coluna, ele preenche a célula com o valor
         //respectivo do objeto de mesmo indice na lista
         switch (columnIndex) {
-            case COLUNA_NOME:
-//                funcionario.setNome(String.valueOf(aValue));
+            case COLUNA_TITULO:
+                musica.setTitulo(String.valueOf(aValue));
                 break;
-            case COLUNA_IDADE:
-//                funcionario.setIdade((int) aValue);
+            case COLUNA_ARTISTA:
+                musica.setArtista(String.valueOf(aValue));
                 break;
-            case COLUNA_MATRICULA:
-//                funcionario.setMatricula((int) aValue);
-                break;
-            case COLUNA_ADMITIDO:
-//                funcionario.setAdmitido((boolean) aValue);
         }
         //este método é que notifica a tabela que houve alteração de dados
         fireTableDataChanged();

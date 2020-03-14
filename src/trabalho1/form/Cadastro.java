@@ -205,12 +205,11 @@ public class Cadastro extends javax.swing.JFrame {
         if (i > 4) {
             m.setAno(Integer.getInteger(ano.substring(0, 3)));
         } else {
-            i = 4 - i;
             while (i != 4) {
-                ano = ano + " ";
+                ano = ano + "0";
                 i = i + 1;
             }
-            m.setAno(Integer.getInteger(ano));
+            m.setAno(Integer.valueOf(ano));
         }
 
         String comentario = jtfComentario.getText();
@@ -267,7 +266,7 @@ public class Cadastro extends javax.swing.JFrame {
         }
 
         String arquivo = jtfTitulo + "-" + jtfArtista;
-        File fileOut = new File("..\\..\\..\\test" + arquivo + ".ID3v1.1");
+        File fileOut = new File(getClass().getResource("../Arquivos").getPath() + "/test" + arquivo + ".ID3v1.1");
         try {
             FileOutputStream fos = new FileOutputStream(fileOut);
             fos.write(cabecalho.getBytes());
