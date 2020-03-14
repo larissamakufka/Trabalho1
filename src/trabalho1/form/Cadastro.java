@@ -290,33 +290,27 @@ public class Cadastro extends javax.swing.JFrame {
         try {
             FileOutputStream fos = new FileOutputStream(fileOut);
 
-            fos.write(cabecalho.getBytes());
+            trabalho1.form.Arquivo newOne = new trabalho1.form.Arquivo(cabecalho, jtfTitulo, jtfArtista, jtfAlbum, jtfAno, jtfComentario, jtfFlag, jtfNrFaixa, jtfGenero);
+
+            fos.write(newOne.getCabecalho().getBytes());
             fos.close();
-            
-            fos.write(jtfTitulo.getBytes());
+            fos.write(newOne.getTitulo().getBytes());
             fos.close();
-            
-            fos.write(jtfArtista.getBytes());
+            fos.write(newOne.getArtista().getBytes());
             fos.close();
-            
-            fos.write(jtfAlbum.getBytes());
+            fos.write(newOne.getAlbum().getBytes());
             fos.close();
-            
-            fos.write(jtfAno.getBytes());
+            fos.write(newOne.getAno().getBytes());
             fos.close();
-            
-            fos.write(jtfComentario.getBytes());
+            fos.write(newOne.getComentario().getBytes());
             fos.close();
-            
-            fos.write(jtfFlag.getBytes());
+            fos.write(newOne.getFlag().getBytes());
             fos.close();
-            
-            fos.write(jtfNrFaixa.getBytes());
+            fos.write(newOne.getNrFaixa().getBytes());
             fos.close();
-            
-            fos.write(jtfGenero.getBytes());
+            fos.write(newOne.getGenero().getBytes());
             fos.close();
-            
+
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
