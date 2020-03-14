@@ -1,9 +1,7 @@
 package trabalho1.Form;
 
 import java.io.*;
-import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
 
 public class Principal extends javax.swing.JFrame {
 
