@@ -262,28 +262,28 @@ public class Cadastro extends javax.swing.JFrame {
             }
         }
 
-        String arquivo = jtfTitulo + "-" + jtfArtista;
-        File fileOut = new File("C:\\WINDOWS\\TEMP\\" + arquivo + ".ID3v1.1");
+        String arquivo = jtfTitulo.getText() + "-" + jtfArtista.getText();
+        File fileOut = new File("C:/Temp/Arquivos/" + arquivo + ".ID3v1");
+        
+        if (!fileOut.exists()) {
+            try {
+                fileOut.createNewFile();
+            } catch (IOException ex) {
+                Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         try {
-            FileOutputStream fos = new FileOutputStream(fileOut);
-            fos.write(cabecalho.getBytes());
-            fos.close();
-            fos.write(m.getTitulo().getBytes());
-            fos.close();
-            fos.write(m.getArtista().getBytes());
-            fos.close();
-            fos.write(m.getAlbum().getBytes());
-            fos.close();
-            fos.write(String.valueOf(m.getAno()).getBytes());
-            fos.close();
-            fos.write(jtfComentario.getBytes());
-            fos.close();
-            fos.write(jtfFlag.getBytes());
-            fos.close();
-            fos.write(jtfNrFaixa.getBytes());
-            fos.close();
-            fos.write(jtfGenero.getBytes());
-            fos.close();
+            try (FileOutputStream fos = new FileOutputStream(fileOut)) {
+                fos.write(cabecalho.getBytes());
+                fos.write(m.getTitulo().getBytes());
+                fos.write(m.getArtista().getBytes());
+                fos.write(m.getAlbum().getBytes());
+                fos.write(String.valueOf(m.getAno()).getBytes());
+                fos.write(jtfComentario.getBytes());
+                fos.write(jtfFlag.getBytes());
+                fos.write(jtfNrFaixa.getBytes());
+                fos.write(jtfGenero.getBytes());
+            }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {

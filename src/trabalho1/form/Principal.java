@@ -32,7 +32,10 @@ public class Principal extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
+//<<<<<<< HEAD
 //>>>>>>> afaa75f9e0e053415a9b0d85ae48dc7ce4c59065
+//=======
+//>>>>>>> e4ab6d9b2411dc95818f9c21ac5d8df3be2333db
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
