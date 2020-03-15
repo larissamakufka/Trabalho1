@@ -208,7 +208,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cadastrar novo arquivo"/>
+        <Property name="text" type="java.lang.String" value="Cadastrar um novo arquivo"/>
       </Properties>
     </Component>
   </SubComponents>

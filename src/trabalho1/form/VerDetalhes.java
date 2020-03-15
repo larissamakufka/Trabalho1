@@ -118,7 +118,7 @@ public class VerDetalhes extends javax.swing.JFrame {
             }
         });
 
-        jLabel9.setText("Ver detalhes");
+        jLabel9.setText("Ver detalhes do arquivo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -77,7 +77,7 @@ public class Cadastro extends javax.swing.JFrame {
             }
         });
 
-        jLabel9.setText("Cadastrar novo arquivo");
+        jLabel9.setText("Cadastrar um novo arquivo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
