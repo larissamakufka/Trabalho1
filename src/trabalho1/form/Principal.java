@@ -190,7 +190,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void jbVerDetalhesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVerDetalhesActionPerformed
         Object nomeTitulo = jTable.getModel().getValueAt(jTable.getSelectedRow(), 0);
-        Object nomeArtista = jTable.getModel().getValueAt(jTable.getSelectedRow(), 0);
+        Object nomeArtista = jTable.getModel().getValueAt(jTable.getSelectedRow(), 1);
 
         VerDetalhes verDetalhes = new VerDetalhes();
         verDetalhes.setVisible(true);
@@ -198,14 +198,12 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jbVerDetalhesActionPerformed
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
-
         Object nomeTitulo = jTable.getModel().getValueAt(jTable.getSelectedRow(), 0);
-        Object nomeArtista = jTable.getModel().getValueAt(jTable.getSelectedRow(), 0);
+        Object nomeArtista = jTable.getModel().getValueAt(jTable.getSelectedRow(), 1);
 
         File fileOut = new File("C:\\Users\\Bruna Schroeder\\Desktop\\FURB\\Prog II\\Nova pasta" + nomeTitulo
                 + "-" + nomeArtista + ".ID3v1");
         fileOut.deleteOnExit();
-
     }//GEN-LAST:event_jbExcluirActionPerformed
 
     public static void main(String args[]) {

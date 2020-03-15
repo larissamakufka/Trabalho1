@@ -331,7 +331,7 @@ public class VerDetalhes extends javax.swing.JFrame {
     }//GEN-LAST:event_jbCancelarActionPerformed
 
     private void jtfTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfTituloActionPerformed
-//puxa as informações da selected row
+//puxa as informações da selected row 
     }//GEN-LAST:event_jtfTituloActionPerformed
 
     private void jtfArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfArtistaActionPerformed
