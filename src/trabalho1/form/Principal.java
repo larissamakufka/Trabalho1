@@ -17,7 +17,7 @@ public class Principal extends javax.swing.JFrame {
 
     public void popularTabela() {
 
-        File file = new File("C:/Temp/Arquivos");
+        File file = new File("C:\\Users\\Bruna Schroeder\\Desktop\\FURB\\Prog II\\Nova pasta");
 
         if (!file.exists()) {
             try {
@@ -34,7 +34,6 @@ public class Principal extends javax.swing.JFrame {
 
             try {
                 FileInputStream fis = new FileInputStream(arquivo);
-
                 Musica m = new Musica();
 
                 //TAG        
@@ -102,7 +101,6 @@ public class Principal extends javax.swing.JFrame {
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "Erro ao ler arquivo. Erro: " + ex.getMessage());
             }
-
             System.out.println(arquivo.getName());
         }
     }
@@ -191,16 +189,21 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jbAdicionarActionPerformed
 
     private void jbVerDetalhesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVerDetalhesActionPerformed
-
+        Object nomeTitulo = jTable.getModel().getValueAt(jTable.getSelectedRow(), 0);
         Object nomeArtista = jTable.getModel().getValueAt(jTable.getSelectedRow(), 0);
+
+        VerDetalhes verDetalhes = new VerDetalhes();
+        verDetalhes.setVisible(true);
 
     }//GEN-LAST:event_jbVerDetalhesActionPerformed
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
 
+        Object nomeTitulo = jTable.getModel().getValueAt(jTable.getSelectedRow(), 0);
         Object nomeArtista = jTable.getModel().getValueAt(jTable.getSelectedRow(), 0);
 
-        File fileOut = new File(""); //pegar nome do diretorio do item selecionado, como fazer
+        File fileOut = new File("C:\\Users\\Bruna Schroeder\\Desktop\\FURB\\Prog II\\Nova pasta" + nomeTitulo
+                + "-" + nomeArtista + ".ID3v1");
         fileOut.deleteOnExit();
 
     }//GEN-LAST:event_jbExcluirActionPerformed

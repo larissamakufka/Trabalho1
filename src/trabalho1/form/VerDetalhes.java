@@ -1,13 +1,13 @@
-package trabalho1.Form;
+package trabalho1.form;
 
 import java.io.*;
 import java.util.logging.*;
 import javax.swing.JOptionPane;
 import trabalho1.Musica;
 
-public class Cadastro extends javax.swing.JFrame {
+public class VerDetalhes extends javax.swing.JFrame {
 
-    public Cadastro() {
+    public VerDetalhes() {
         initComponents();
     }
 
@@ -33,6 +33,7 @@ public class Cadastro extends javax.swing.JFrame {
         jtfGenero = new javax.swing.JTextField();
         jbCancelar = new javax.swing.JButton();
         jbSalvar = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,21 +47,62 @@ public class Cadastro extends javax.swing.JFrame {
 
         jLabel2.setText("Artista:");
 
+        jtfArtista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfArtistaActionPerformed(evt);
+            }
+        });
+
         jLabel3.setText("Albúm:");
+
+        jtfAlbum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfAlbumActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Ano:");
 
+        jtfAno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfAnoActionPerformed(evt);
+            }
+        });
+
         jLabel5.setText("Comentário:");
+
+        jtfComentario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfComentarioActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Flag de trilha:");
 
         jtfFlag.setEditable(false);
         jtfFlag.setText("0");
         jtfFlag.setEnabled(false);
+        jtfFlag.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfFlagActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Nr. Faixa:");
 
+        jtfNrFaixa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfNrFaixaActionPerformed(evt);
+            }
+        });
+
         jLabel8.setText("Gênero:");
+
+        jtfGenero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfGeneroActionPerformed(evt);
+            }
+        });
 
         jbCancelar.setText("Cancelar");
         jbCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -69,12 +111,14 @@ public class Cadastro extends javax.swing.JFrame {
             }
         });
 
-        jbSalvar.setText("Salvar");
+        jbSalvar.setText("Salvar Alterações");
         jbSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbSalvarActionPerformed(evt);
             }
         });
+
+        jLabel9.setText("Ver detalhes");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,44 +126,51 @@ public class Cadastro extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jtfTitulo)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jbSalvar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbCancelar))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtfAno, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtfNrFaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jtfFlag, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
-                            .addComponent(jtfGenero))
-                        .addGap(48, 129, Short.MAX_VALUE))
-                    .addComponent(jtfAlbum)
-                    .addComponent(jtfComentario)
-                    .addComponent(jtfArtista))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jbSalvar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbCancelar)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel5))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jtfTitulo)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jtfAno, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jtfNrFaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel8)
+                                            .addComponent(jLabel6))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jtfFlag, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
+                                            .addComponent(jtfGenero))
+                                        .addGap(48, 129, Short.MAX_VALUE))
+                                    .addComponent(jtfAlbum)
+                                    .addComponent(jtfComentario)
+                                    .addComponent(jtfArtista)))
+                            .addComponent(jLabel9))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jtfTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -150,8 +201,7 @@ public class Cadastro extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbCancelar)
-                    .addComponent(jbSalvar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jbSalvar)))
         );
 
         pack();
@@ -244,7 +294,7 @@ public class Cadastro extends javax.swing.JFrame {
 
         String arquivo = jtfTitulo.getText() + "-" + jtfArtista.getText();
 
-        File fileOut = new File("C:/Temp/Arquivos/" + arquivo + ".ID3v1");
+        File fileOut = new File("C:\\Users\\Bruna Schroeder\\Desktop\\FURB\\Prog II\\Nova pasta" + arquivo + ".ID3v1");
 
         if (!fileOut.exists()) {
             try {
@@ -266,7 +316,8 @@ public class Cadastro extends javax.swing.JFrame {
                 fos.write(String.valueOf(m.getNrFaixa()).getBytes());
                 fos.write(String.valueOf(m.getGenero()).getBytes());
             }
-            JOptionPane.showMessageDialog(null, "Arquivos salvo com sucesso!");
+            JOptionPane.showMessageDialog(null, "Arquivo salvo com sucesso!");
+            dispose();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -280,8 +331,36 @@ public class Cadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_jbCancelarActionPerformed
 
     private void jtfTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfTituloActionPerformed
-        // TODO add your handling code here:
+//puxa as informações da selected row
     }//GEN-LAST:event_jtfTituloActionPerformed
+
+    private void jtfArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfArtistaActionPerformed
+//puxa as informações da selected row
+    }//GEN-LAST:event_jtfArtistaActionPerformed
+
+    private void jtfAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfAlbumActionPerformed
+//puxa as informações da selected row
+    }//GEN-LAST:event_jtfAlbumActionPerformed
+
+    private void jtfAnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfAnoActionPerformed
+//puxa as informações da selected row
+    }//GEN-LAST:event_jtfAnoActionPerformed
+
+    private void jtfNrFaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfNrFaixaActionPerformed
+//puxa as informações da selected row
+    }//GEN-LAST:event_jtfNrFaixaActionPerformed
+
+    private void jtfGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfGeneroActionPerformed
+//puxa as informações da selected row
+    }//GEN-LAST:event_jtfGeneroActionPerformed
+
+    private void jtfComentarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfComentarioActionPerformed
+//puxa as informações da selected row
+    }//GEN-LAST:event_jtfComentarioActionPerformed
+
+    private void jtfFlagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfFlagActionPerformed
+//puxa as informações da selected row
+    }//GEN-LAST:event_jtfFlagActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -292,6 +371,7 @@ public class Cadastro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JButton jbCancelar;
     private javax.swing.JButton jbSalvar;
     private javax.swing.JTextField jtfAlbum;
