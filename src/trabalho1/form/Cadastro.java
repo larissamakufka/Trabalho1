@@ -221,7 +221,6 @@ public class Cadastro extends javax.swing.JFrame {
         }
 
         String comentario = jtfComentario.getText();
-        String jtfComentario = "";
         i = comentario.length();
         if (i > 28) {
             m.setComentario(comentario.substring(0, 27));
@@ -252,8 +251,8 @@ public class Cadastro extends javax.swing.JFrame {
         }
 
         String arquivo = jtfTitulo.getText() + "-" + jtfArtista.getText();
-
-        File fileOut = new File("C:\\Users\\Bruna Schroeder\\Desktop\\FURB\\Prog II\\Nova pasta" + arquivo + ".ID3v1");
+        String diretorio = "C:\\Users\\Bruna Schroeder\\Desktop\\FURB\\Prog II\\Nova pasta\\" + arquivo + ".ID3v1";
+        File fileOut = new File(diretorio);
 
         if (!fileOut.exists()) {
             try {
@@ -270,7 +269,7 @@ public class Cadastro extends javax.swing.JFrame {
                 fos.write(m.getArtista().getBytes());
                 fos.write(m.getAlbum().getBytes());
                 fos.write(String.valueOf(m.getAno()).getBytes());
-                fos.write(jtfComentario.getBytes());
+                fos.write(m.getComentario().getBytes());
                 fos.write(String.valueOf(m.getFlag()).getBytes());
                 fos.write(String.valueOf(m.getNrFaixa()).getBytes());
                 fos.write(String.valueOf(m.getGenero()).getBytes());
