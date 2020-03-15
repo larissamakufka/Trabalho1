@@ -251,8 +251,7 @@ public class Cadastro extends javax.swing.JFrame {
         }
 
         String arquivo = jtfTitulo.getText() + "-" + jtfArtista.getText();
-        String diretorio = "C:\\Users\\Bruna Schroeder\\Desktop\\FURB\\Prog II\\Nova pasta\\" + arquivo + ".ID3v1";
-        File fileOut = new File(diretorio);
+        File fileOut = new File("C:\\Users\\Bruna Schroeder\\Desktop\\FURB\\Prog II\\Nova pasta\\" + arquivo + ".ID3v1");
 
         if (!fileOut.exists()) {
             try {
