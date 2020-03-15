@@ -1,17 +1,15 @@
 package trabalho1.Form;
 
 import java.io.*;
+import java.util.Base64;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import trabalho1.Musica;
 import trabalho1.model.TableModelMusica;
 
 public class Principal extends javax.swing.JFrame {
 
-//<<<<<<< HEAD
-//    public class Principal extends JFrame {
-//        public Principal() {
-//            initComponents();
-//        }
-//        @SuppressWarnings("unchecked")
-//=======
     public Principal() {
         initComponents();
         popularTabela();
@@ -19,20 +17,97 @@ public class Principal extends javax.swing.JFrame {
 
     public void popularTabela() {
 
-        File file = new File(getClass().getResource("../Arquivos").getPath());
-        
+        File file = new File("C:/Temp/Arquivos");
+
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Erro ao criar pasta. Erro: " + ex.getMessage());
+            }
+        }
+
         File afile[] = file.listFiles();
         int i = 0;
         for (int j = afile.length; i < j; i++) {
-            File arquivos = afile[i];
-            System.out.println(arquivos.getName());
-        }
+            File arquivo = afile[i];
 
-       // jTable.setModel(new TableModelMusica());
+            try {
+                FileInputStream fis = new FileInputStream(arquivo);
+
+                Musica m = new Musica();
+
+                //TAG        
+                int data = fis.read();
+                data = fis.read();
+                data = fis.read();
+
+                // Título da música
+                String titulo = "";
+                for (int t = 0; t < 30; t++) {
+                    data = fis.read();
+                    titulo += Character.toString((char) data);
+                }
+                m.setTitulo(titulo);
+
+                String artista = "";
+                for (int t = 0; t < 30; t++) {
+                    data = fis.read();
+                    artista += Character.toString((char) data);
+                }
+                m.setArtista(artista);
+
+                String album = "";
+                for (int t = 0; t < 30; t++) {
+                    data = fis.read();
+                    album += Character.toString((char) data);
+                }
+                m.setAlbum(album);
+
+                String ano = "";
+                for (int t = 0; t < 4; t++) {
+                    data = fis.read();
+                    ano += Character.toString((char) data);
+                }
+                m.setAno(Integer.valueOf(ano));
+
+                String comentario = "";
+                for (int t = 0; t < 28; t++) {
+                    data = fis.read();
+                    comentario += Character.toString((char) data);
+                }
+                m.setComentario(comentario);
+
+                data = fis.read();
+                String flag = Character.toString((char) data);
+                m.setFlag(Integer.valueOf(flag));
+
+                String nrFaixa = "";
+                for (int t = 0; t < 1; t++) {
+                    data = fis.read();
+                    nrFaixa += Character.toString((char) data);
+                }
+                m.setNrFaixa(Integer.valueOf(nrFaixa));
+
+                String genero = "";
+                for (int t = 0; t < 1; t++) {
+                    data = fis.read();
+                    genero += Character.toString((char) data);
+                }
+                m.setGenero(Integer.valueOf(genero));
+
+                fis.close();
+            } catch (FileNotFoundException ex) {
+                JOptionPane.showMessageDialog(null, "Erro ao ler arquivo. Erro: " + ex.getMessage());
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Erro ao ler arquivo. Erro: " + ex.getMessage());
+            }
+
+            System.out.println(arquivo.getName());
+        }
     }
 
     @SuppressWarnings("unchecked")
-//>>>>>>> afaa75f9e0e053415a9b0d85ae48dc7ce4c59065
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 

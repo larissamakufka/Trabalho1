@@ -54,6 +54,10 @@ public class Cadastro extends javax.swing.JFrame {
 
         jLabel6.setText("Flag de trilha:");
 
+        jtfFlag.setEditable(false);
+        jtfFlag.setText("0");
+        jtfFlag.setEnabled(false);
+
         jLabel7.setText("Nr. Faixa:");
 
         jLabel8.setText("Gênero:");
@@ -164,10 +168,9 @@ public class Cadastro extends javax.swing.JFrame {
         if (i > 30) {
             m.setTitulo(titulo.substring(0, 29));
         } else {
-            i = 30 - i;
             while (i != 30) {
-                titulo = titulo + " ";
-                i = i + 1;
+                titulo += "+";
+                i++;
             }
             m.setTitulo(titulo);
         }
@@ -177,10 +180,9 @@ public class Cadastro extends javax.swing.JFrame {
         if (i > 30) {
             m.setArtista(artista.substring(0, 29));
         } else {
-            i = 30 - i;
             while (i != 30) {
-                artista = artista + " ";
-                i = i + 1;
+                artista += "+";
+                i++;
             }
             m.setArtista(artista);
         }
@@ -190,10 +192,9 @@ public class Cadastro extends javax.swing.JFrame {
         if (i > 30) {
             m.setAlbum(album.substring(0, 29));
         } else {
-            i = 30 - i;
             while (i != 30) {
-                album = album + " ";
-                i = i + 1;
+                album += "+";
+                i++;
             }
             m.setAlbum(album);
         }
@@ -205,7 +206,7 @@ public class Cadastro extends javax.swing.JFrame {
         } else {
             while (i != 4) {
                 ano = ano + "0";
-                i = i + 1;
+                i++;
             }
             m.setAno(Integer.valueOf(ano));
         }
@@ -214,59 +215,37 @@ public class Cadastro extends javax.swing.JFrame {
         String jtfComentario = "";
         i = comentario.length();
         if (i > 28) {
-            jtfComentario = comentario.substring(0, 27);
+            m.setComentario(comentario.substring(0, 27));
         } else {
-            i = 28 - i;
             while (i != 28) {
-                comentario = comentario + " ";
-                i = i + 1;
+                comentario += "+";
+                i++;
             }
-            jtfComentario = comentario;
+            m.setComentario(comentario);
         }
 
-        String flag = jtfFlag.getText();
-        String jtfFlag = "";
-        i = flag.length();
-        if (i > 1) {
-            jtfFlag = flag.substring(0);
-        } else {
-            if (i != 1) {
-                jtfFlag = " ";
-            } else {
-                jtfFlag = flag;
-            }
-        }
+        m.setFlag(0);
 
         String nrFaixa = jtfNrFaixa.getText();
-        String jtfNrFaixa = "";
         i = nrFaixa.length();
         if (i > 1) {
-            jtfNrFaixa = nrFaixa.substring(0);
+            m.setNrFaixa(Integer.valueOf(nrFaixa.substring(0)));
         } else {
-            if (i != 1) {
-                jtfNrFaixa = " ";
-            } else {
-                jtfNrFaixa = nrFaixa;
-            }
+            m.setNrFaixa(0);
         }
 
         String genero = jtfGenero.getText();
-        String jtfGenero = "";
         i = genero.length();
         if (i > 1) {
-            jtfGenero = genero.substring(0);
+            m.setGenero(Integer.valueOf(genero.substring(0)));
         } else {
-            if (i != 1) {
-                jtfGenero = " ";
-            } else {
-                jtfGenero = genero;
-            }
+            m.setGenero(0);
         }
-        
+
         String arquivo = jtfTitulo.getText() + "-" + jtfArtista.getText();
-        
+
         File fileOut = new File("C:/Temp/Arquivos/" + arquivo + ".ID3v1");
-        
+
         if (!fileOut.exists()) {
             try {
                 fileOut.createNewFile();
@@ -274,7 +253,7 @@ public class Cadastro extends javax.swing.JFrame {
                 Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
+
         try {
             try (FileOutputStream fos = new FileOutputStream(fileOut)) {
                 fos.write(cabecalho.getBytes());
@@ -283,9 +262,9 @@ public class Cadastro extends javax.swing.JFrame {
                 fos.write(m.getAlbum().getBytes());
                 fos.write(String.valueOf(m.getAno()).getBytes());
                 fos.write(jtfComentario.getBytes());
-                fos.write(jtfFlag.getBytes());
-                fos.write(jtfNrFaixa.getBytes());
-                fos.write(jtfGenero.getBytes());
+                fos.write(String.valueOf(m.getFlag()).getBytes());
+                fos.write(String.valueOf(m.getNrFaixa()).getBytes());
+                fos.write(String.valueOf(m.getGenero()).getBytes());
             }
             JOptionPane.showMessageDialog(null, "Arquivos salvo com sucesso!");
         } catch (FileNotFoundException ex) {

@@ -6,6 +6,42 @@ public class Musica {
     private String artista;
     private String album;
     private int ano;
+    private String comentario;
+    private int flag;
+    private int nrFaixa;
+    private int genero;
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
+
+    public int getFlag() {
+        return flag;
+    }
+
+    public void setFlag(int flag) {
+        this.flag = flag;
+    }
+
+    public int getNrFaixa() {
+        return nrFaixa;
+    }
+
+    public void setNrFaixa(int nrFaixa) {
+        this.nrFaixa = nrFaixa;
+    }
+
+    public int getGenero() {
+        return genero;
+    }
+
+    public void setGenero(int genero) {
+        this.genero = genero;
+    }
 
     public String getTitulo() {
         return titulo;
